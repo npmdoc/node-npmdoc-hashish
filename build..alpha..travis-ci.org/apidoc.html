@@ -1,0 +1,1895 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/substack/node-hashish#readme"
+
+    >hashish (v0.0.4)</a>
+</h1>
+<h4>Hash data structure manipulation functions</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish">module hashish</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.hashish">
+            function <span class="apidocSignatureSpan"></span>hashish
+            <span class="apidocSignatureSpan">(hash, xs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.clone">
+            function <span class="apidocSignatureSpan">hashish.</span>clone
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.compact">
+            function <span class="apidocSignatureSpan">hashish.</span>compact
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.concat">
+            function <span class="apidocSignatureSpan">hashish.</span>concat
+            <span class="apidocSignatureSpan">(xs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.copy">
+            function <span class="apidocSignatureSpan">hashish.</span>copy
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.detect">
+            function <span class="apidocSignatureSpan">hashish.</span>detect
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.exclude">
+            function <span class="apidocSignatureSpan">hashish.</span>exclude
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.extract">
+            function <span class="apidocSignatureSpan">hashish.</span>extract
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.filter">
+            function <span class="apidocSignatureSpan">hashish.</span>filter
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.forEach">
+            function <span class="apidocSignatureSpan">hashish.</span>forEach
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.has">
+            function <span class="apidocSignatureSpan">hashish.</span>has
+            <span class="apidocSignatureSpan">(ref, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.map">
+            function <span class="apidocSignatureSpan">hashish.</span>map
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.merge">
+            function <span class="apidocSignatureSpan">hashish.</span>merge
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.reduce">
+            function <span class="apidocSignatureSpan">hashish.</span>reduce
+            <span class="apidocSignatureSpan">(ref, f, acc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.size">
+            function <span class="apidocSignatureSpan">hashish.</span>size
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.some">
+            function <span class="apidocSignatureSpan">hashish.</span>some
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.tap">
+            function <span class="apidocSignatureSpan">hashish.</span>tap
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.toString">
+            function <span class="apidocSignatureSpan">hashish.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.update">
+            function <span class="apidocSignatureSpan">hashish.</span>update
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.valuesAt">
+            function <span class="apidocSignatureSpan">hashish.</span>valuesAt
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.zip">
+            function <span class="apidocSignatureSpan">hashish.</span>zip
+            <span class="apidocSignatureSpan">(xs, ys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.clone">module hashish.clone</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.clone.clone">
+            function <span class="apidocSignatureSpan">hashish.</span>clone
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.compact">module hashish.compact</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.compact.compact">
+            function <span class="apidocSignatureSpan">hashish.</span>compact
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.concat">module hashish.concat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.concat.concat">
+            function <span class="apidocSignatureSpan">hashish.</span>concat
+            <span class="apidocSignatureSpan">(xs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.copy">module hashish.copy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.copy.copy">
+            function <span class="apidocSignatureSpan">hashish.</span>copy
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.detect">module hashish.detect</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.detect.detect">
+            function <span class="apidocSignatureSpan">hashish.</span>detect
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.exclude">module hashish.exclude</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.exclude.exclude">
+            function <span class="apidocSignatureSpan">hashish.</span>exclude
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.extract">module hashish.extract</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.extract.extract">
+            function <span class="apidocSignatureSpan">hashish.</span>extract
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.filter">module hashish.filter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.filter.filter">
+            function <span class="apidocSignatureSpan">hashish.</span>filter
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.forEach">module hashish.forEach</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.forEach.forEach">
+            function <span class="apidocSignatureSpan">hashish.</span>forEach
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.has">module hashish.has</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.has.has">
+            function <span class="apidocSignatureSpan">hashish.</span>has
+            <span class="apidocSignatureSpan">(ref, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.map">module hashish.map</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.map.map">
+            function <span class="apidocSignatureSpan">hashish.</span>map
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.merge">module hashish.merge</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.merge.merge">
+            function <span class="apidocSignatureSpan">hashish.</span>merge
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.reduce">module hashish.reduce</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.reduce.reduce">
+            function <span class="apidocSignatureSpan">hashish.</span>reduce
+            <span class="apidocSignatureSpan">(ref, f, acc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.size">module hashish.size</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.size.size">
+            function <span class="apidocSignatureSpan">hashish.</span>size
+            <span class="apidocSignatureSpan">(ref)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.some">module hashish.some</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.some.some">
+            function <span class="apidocSignatureSpan">hashish.</span>some
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.tap">module hashish.tap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.tap.tap">
+            function <span class="apidocSignatureSpan">hashish.</span>tap
+            <span class="apidocSignatureSpan">(ref, f)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.toString">module hashish.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.toString.toString">
+            function <span class="apidocSignatureSpan">hashish.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.update">module hashish.update</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.update.update">
+            function <span class="apidocSignatureSpan">hashish.</span>update
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.valuesAt">module hashish.valuesAt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.valuesAt.valuesAt">
+            function <span class="apidocSignatureSpan">hashish.</span>valuesAt
+            <span class="apidocSignatureSpan">(ref, keys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hashish.zip">module hashish.zip</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hashish.zip.zip">
+            function <span class="apidocSignatureSpan">hashish.</span>zip
+            <span class="apidocSignatureSpan">(xs, ys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish" id="apidoc.module.hashish">module hashish</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.hashish" id="apidoc.element.hashish.hashish">
+        function <span class="apidocSignatureSpan"></span>hashish
+        <span class="apidocSignatureSpan">(hash, xs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Hash(hash, xs) {
+    if (Array.isArray(hash) &#x26;&#x26; Array.isArray(xs)) {
+        var to = Math.min(hash.length, xs.length);
+        var acc = {};
+        for (var i = 0; i &#x3c; to; i++) {
+            acc[hash[i]] = xs[i];
+        }
+        return Hash(acc);
+    }
+
+    if (hash === undefined) return Hash({});
+
+    var self = {
+        map : function (f) {
+            var acc = { __proto__ : hash.__proto__ };
+            Object.keys(hash).forEach(function (key) {
+                acc[key] = f.call(self, hash[key], key);
+            });
+            return Hash(acc);
+        },
+        forEach : function (f) {
+            Object.keys(hash).forEach(function (key) {
+                f.call(self, hash[key], key);
+            });
+            return self;
+        },
+        filter : function (f) {
+            var acc = { __proto__ : hash.__proto__ };
+            Object.keys(hash).forEach(function (key) {
+                if (f.call(self, hash[key], key)) {
+                    acc[key] = hash[key];
+                }
+            });
+            return Hash(acc);
+        },
+        detect : function (f) {
+            for (var key in hash) {
+                if (f.call(self, hash[key], key)) {
+                    return hash[key];
+                }
+            }
+            return undefined;
+        },
+        reduce : function (f, acc) {
+            var keys = Object.keys(hash);
+            if (acc === undefined) acc = keys.shift();
+            keys.forEach(function (key) {
+                acc = f.call(self, acc, hash[key], key);
+            });
+            return acc;
+        },
+        some : function (f) {
+            for (var key in hash) {
+                if (f.call(self, hash[key], key)) return true;
+            }
+            return false;
+        },
+        update : function (obj) {
+            if (arguments.length &#x3e; 1) {
+                self.updateAll([].slice.call(arguments));
+            }
+            else {
+                Object.keys(obj).forEach(function (key) {
+                    hash[key] = obj[key];
+                });
+            }
+            return self;
+        },
+        updateAll : function (xs) {
+            xs.filter(Boolean).forEach(function (x) {
+                self.update(x);
+            });
+            return self;
+        },
+        merge : function (obj) {
+            if (arguments.length &#x3e; 1) {
+                return self.copy.updateAll([].slice.call(arguments));
+            }
+            else {
+                return self.copy.update(obj);
+            }
+        },
+        mergeAll : function (xs) {
+            return self.copy.updateAll(xs);
+        },
+        has : function (key) { // only operates on enumerables
+            return Array.isArray(key)
+                ? key.every(function (k) { return self.has(k) })
+                : self.keys.indexOf(key.toString()) &#x3e;= 0;
+        },
+        valuesAt : function (keys) {
+            return Array.isArray(keys)
+                ? keys.map(function (key) { return hash[key] })
+                : hash[keys]
+            ;
+        },
+        tap : function (f) {
+            f.call(self, hash);
+            return self;
+        },
+        extract : function (keys) {
+            var acc = {};
+            keys.forEach(function (key) {
+                acc[key] = hash[key];
+            });
+            return Hash(acc);
+        },
+        exclude : function (keys) {
+            return self.filter(function (_, key) {
+                return keys.indexOf(key) &#x3c; 0
+            });
+        },
+        end : hash,
+        items : hash
+    };
+
+    var props = {
+        keys : function () { return Object.keys(hash) },
+        values : function () {
+            return Object.keys(hash).map(function (key) { return hash[key] });
+        },
+        compact : function () {
+            return self.filter(function (x) { return x !== undefined });
+        },
+        clone : function () { return Hash(Hash.clone(hash)) },
+        copy : function () { return Hash(Hash.copy(hash)) },
+        length : function () { return Object.keys(hash).length },
+        size : function () { r ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.clone" id="apidoc.element.hashish.clone">
+        function <span class="apidocSignatureSpan">hashish.</span>clone
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (ref) {
+    return Traverse.clone(ref);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    keys : function () { return Object.keys(hash) },
+    values : function () {
+        return Object.keys(hash).map(function (key) { return hash[key] });
+    },
+    compact : function () {
+        return self.filter(function (x) { return x !== undefined });
+    },
+    clone : function () { return Hash(Hash.<span class="apidocCodeKeywordSpan">clone</span>(hash)) },
+    copy : function () { return Hash(Hash.copy(hash)) },
+    length : function () { return Object.keys(hash).length },
+    size : function () { return self.length }
+};
+
+if (Object.defineProperty) {
+    // es5-shim has an Object.defineProperty but it throws for getters
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.compact" id="apidoc.element.hashish.compact">
+        function <span class="apidocSignatureSpan">hashish.</span>compact
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compact = function (ref) {
+    return Hash(ref).compact.items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.concat" id="apidoc.element.hashish.concat">
+        function <span class="apidocSignatureSpan">hashish.</span>concat
+        <span class="apidocSignatureSpan">(xs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concat = function (xs) {
+    var hash = Hash({});
+    xs.forEach(function (x) { hash.update(x) });
+    return hash.items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.copy" id="apidoc.element.hashish.copy">
+        function <span class="apidocSignatureSpan">hashish.</span>copy
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copy = function (ref) {
+    var hash = { __proto__ : ref.__proto__ };
+    Object.keys(ref).forEach(function (key) {
+        hash[key] = ref[key];
+    });
+    return hash;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    values : function () {
+        return Object.keys(hash).map(function (key) { return hash[key] });
+    },
+    compact : function () {
+        return self.filter(function (x) { return x !== undefined });
+    },
+    clone : function () { return Hash(Hash.clone(hash)) },
+    copy : function () { return Hash(Hash.<span class="apidocCodeKeywordSpan">copy</span>(hash)) },
+    length : function () { return Object.keys(hash).length },
+    size : function () { return self.length }
+};
+
+if (Object.defineProperty) {
+    // es5-shim has an Object.defineProperty but it throws for getters
+    try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.detect" id="apidoc.element.hashish.detect">
+        function <span class="apidocSignatureSpan">hashish.</span>detect
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detect = function (ref, f) {
+    return Hash(ref).detect(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Output:
+
+a =&#x3e; 10
+b =&#x3e; 20
+
+Some functions and attributes in the chaining interface are terminal, like
+`.items` or `.<span class="apidocCodeKeywordSpan">detect</span>()`. They return values of their own instead of the chain
+context.
+
+Each function in the chainable interface is also attached to `Hash` in chainless
+form:
+
+var Hash = require(&#x27;hashish&#x27;);
+var obj = { a : 1, b : 2, c : 3, d : 4 };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.exclude" id="apidoc.element.hashish.exclude">
+        function <span class="apidocSignatureSpan">hashish.</span>exclude
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exclude = function (ref, keys) {
+    return Hash(ref).exclude(keys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">exclude</span>(keys).items;
+};
+
+Hash.concat = function (xs) {
+    var hash = Hash({});
+    xs.forEach(function (x) { hash.update(x) });
+    return hash.items;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.extract" id="apidoc.element.hashish.extract">
+        function <span class="apidocSignatureSpan">hashish.</span>extract
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">extract</span>(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+    return Hash(ref).exclude(keys).items;
+};
+
+Hash.concat = function (xs) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.filter" id="apidoc.element.hashish.filter">
+        function <span class="apidocSignatureSpan">hashish.</span>filter
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (ref, f) {
+    return Hash(ref).filter(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Hashish provides a chaining interface, where you can do:
+
+    var Hash = require(&#x27;hashish&#x27;);
+
+    Hash({ a : 1, b : 2, c : 3, d : 4 })
+        .map(function (x) { return x * 10 })
+        .<span class="apidocCodeKeywordSpan">filter</span>(function (x) { return x &#x3c; 30 })
+        .forEach(function (x, key) {
+            console.log(key + &#x27; =&#x3e; &#x27; + x);
+        })
+    ;
+
+Output:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.forEach" id="apidoc.element.hashish.forEach">
+        function <span class="apidocSignatureSpan">hashish.</span>forEach
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEach = function (ref, f) {
+    Hash(ref).forEach(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Hashish provides a chaining interface, where you can do:
+
+var Hash = require(&#x27;hashish&#x27;);
+
+Hash({ a : 1, b : 2, c : 3, d : 4 })
+    .map(function (x) { return x * 10 })
+    .filter(function (x) { return x &#x3c; 30 })
+    .<span class="apidocCodeKeywordSpan">forEach</span>(function (x, key) {
+        console.log(key + &#x27; =&#x3e; &#x27; + x);
+    })
+;
+
+Output:
+
+a =&#x3e; 10
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.has" id="apidoc.element.hashish.has">
+        function <span class="apidocSignatureSpan">hashish.</span>has
+        <span class="apidocSignatureSpan">(ref, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (ref, key) {
+    return Hash(ref).has(key);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+},
+mergeAll : function (xs) {
+    return self.copy.updateAll(xs);
+},
+has : function (key) { // only operates on enumerables
+    return Array.isArray(key)
+        ? key.every(function (k) { return self.<span class="apidocCodeKeywordSpan">has</span>(k) })
+        : self.keys.indexOf(key.toString()) &#x3e;= 0;
+},
+valuesAt : function (keys) {
+    return Array.isArray(keys)
+        ? keys.map(function (key) { return hash[key] })
+        : hash[keys]
+    ;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.map" id="apidoc.element.hashish.map">
+        function <span class="apidocSignatureSpan">hashish.</span>map
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">map = function (ref, f) {
+    return Hash(ref).map(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+way of hash/map interfaces.
+
+Hashish provides a chaining interface, where you can do:
+
+    var Hash = require(&#x27;hashish&#x27;);
+
+    Hash({ a : 1, b : 2, c : 3, d : 4 })
+        .<span class="apidocCodeKeywordSpan">map</span>(function (x) { return x * 10 })
+        .filter(function (x) { return x &#x3c; 30 })
+        .forEach(function (x, key) {
+            console.log(key + &#x27; =&#x3e; &#x27; + x);
+        })
+    ;
+
+Output:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.merge" id="apidoc.element.hashish.merge">
+        function <span class="apidocSignatureSpan">hashish.</span>merge
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (a) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.merge.apply(hash, args).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.reduce" id="apidoc.element.hashish.reduce">
+        function <span class="apidocSignatureSpan">hashish.</span>reduce
+        <span class="apidocSignatureSpan">(ref, f, acc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduce = function (ref, f, acc) {
+    return Hash(ref).reduce(f, acc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.detect = function (ref, f) {
+    return Hash(ref).detect(f);
+};
+
+Hash.reduce = function (ref, f, acc) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">reduce</span>(f, acc);
+};
+
+Hash.some = function (ref, f) {
+    return Hash(ref).some(f);
+};
+
+Hash.update = function (a /*, b, c, ... */) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.size" id="apidoc.element.hashish.size">
+        function <span class="apidocSignatureSpan">hashish.</span>size
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">size = function (ref) {
+    return Hash(ref).size;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Make a shallow copy of the hash.
+
+length
+------
+
+Return the number of key/value pairs in the hash.
+Note: use `Hash.<span class="apidocCodeKeywordSpan">size</span>()` for non-chain mode.
+
+size
+----
+
+Alias for `length` since `Hash.length` is masked by `Function.prototype`.
+
+See Also
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.some" id="apidoc.element.hashish.some">
+        function <span class="apidocSignatureSpan">hashish.</span>some
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">some = function (ref, f) {
+    return Hash(ref).some(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.reduce = function (ref, f, acc) {
+    return Hash(ref).reduce(f, acc);
+};
+
+Hash.some = function (ref, f) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">some</span>(f);
+};
+
+Hash.update = function (a /*, b, c, ... */) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.update.apply(hash, args).items;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.tap" id="apidoc.element.hashish.tap">
+        function <span class="apidocSignatureSpan">hashish.</span>tap
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.valuesAt = function (ref, keys) {
+    return Hash(ref).valuesAt(keys);
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">tap</span>(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.toString" id="apidoc.element.hashish.toString">
+        function <span class="apidocSignatureSpan">hashish.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+mergeAll : function (xs) {
+    return self.copy.updateAll(xs);
+},
+has : function (key) { // only operates on enumerables
+    return Array.isArray(key)
+        ? key.every(function (k) { return self.has(k) })
+        : self.keys.indexOf(key.<span class="apidocCodeKeywordSpan">toString</span>()) &#x3e;= 0;
+},
+valuesAt : function (keys) {
+    return Array.isArray(keys)
+        ? keys.map(function (key) { return hash[key] })
+        : hash[keys]
+    ;
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.update" id="apidoc.element.hashish.update">
+        function <span class="apidocSignatureSpan">hashish.</span>update
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (a) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.update.apply(hash, args).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            hash[key] = obj[key];
+        });
+    }
+    return self;
+},
+updateAll : function (xs) {
+    xs.filter(Boolean).forEach(function (x) {
+        self.<span class="apidocCodeKeywordSpan">update</span>(x);
+    });
+    return self;
+},
+merge : function (obj) {
+    if (arguments.length &#x3e; 1) {
+        return self.copy.updateAll([].slice.call(arguments));
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.valuesAt" id="apidoc.element.hashish.valuesAt">
+        function <span class="apidocSignatureSpan">hashish.</span>valuesAt
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valuesAt = function (ref, keys) {
+    return Hash(ref).valuesAt(keys);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.has = function (ref, key) {
+    return Hash(ref).has(key);
+};
+
+Hash.valuesAt = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">valuesAt</span>(keys);
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.zip" id="apidoc.element.hashish.zip">
+        function <span class="apidocSignatureSpan">hashish.</span>zip
+        <span class="apidocSignatureSpan">(xs, ys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">zip = function (xs, ys) {
+    return Hash(xs, ys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.clone" id="apidoc.module.hashish.clone">module hashish.clone</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.clone.clone" id="apidoc.element.hashish.clone.clone">
+        function <span class="apidocSignatureSpan">hashish.</span>clone
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (ref) {
+    return Traverse.clone(ref);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    keys : function () { return Object.keys(hash) },
+    values : function () {
+        return Object.keys(hash).map(function (key) { return hash[key] });
+    },
+    compact : function () {
+        return self.filter(function (x) { return x !== undefined });
+    },
+    clone : function () { return Hash(Hash.<span class="apidocCodeKeywordSpan">clone</span>(hash)) },
+    copy : function () { return Hash(Hash.copy(hash)) },
+    length : function () { return Object.keys(hash).length },
+    size : function () { return self.length }
+};
+
+if (Object.defineProperty) {
+    // es5-shim has an Object.defineProperty but it throws for getters
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.compact" id="apidoc.module.hashish.compact">module hashish.compact</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.compact.compact" id="apidoc.element.hashish.compact.compact">
+        function <span class="apidocSignatureSpan">hashish.</span>compact
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compact = function (ref) {
+    return Hash(ref).compact.items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.concat" id="apidoc.module.hashish.concat">module hashish.concat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.concat.concat" id="apidoc.element.hashish.concat.concat">
+        function <span class="apidocSignatureSpan">hashish.</span>concat
+        <span class="apidocSignatureSpan">(xs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concat = function (xs) {
+    var hash = Hash({});
+    xs.forEach(function (x) { hash.update(x) });
+    return hash.items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.copy" id="apidoc.module.hashish.copy">module hashish.copy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.copy.copy" id="apidoc.element.hashish.copy.copy">
+        function <span class="apidocSignatureSpan">hashish.</span>copy
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copy = function (ref) {
+    var hash = { __proto__ : ref.__proto__ };
+    Object.keys(ref).forEach(function (key) {
+        hash[key] = ref[key];
+    });
+    return hash;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    values : function () {
+        return Object.keys(hash).map(function (key) { return hash[key] });
+    },
+    compact : function () {
+        return self.filter(function (x) { return x !== undefined });
+    },
+    clone : function () { return Hash(Hash.clone(hash)) },
+    copy : function () { return Hash(Hash.<span class="apidocCodeKeywordSpan">copy</span>(hash)) },
+    length : function () { return Object.keys(hash).length },
+    size : function () { return self.length }
+};
+
+if (Object.defineProperty) {
+    // es5-shim has an Object.defineProperty but it throws for getters
+    try {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.detect" id="apidoc.module.hashish.detect">module hashish.detect</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.detect.detect" id="apidoc.element.hashish.detect.detect">
+        function <span class="apidocSignatureSpan">hashish.</span>detect
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detect = function (ref, f) {
+    return Hash(ref).detect(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Output:
+
+a =&#x3e; 10
+b =&#x3e; 20
+
+Some functions and attributes in the chaining interface are terminal, like
+`.items` or `.<span class="apidocCodeKeywordSpan">detect</span>()`. They return values of their own instead of the chain
+context.
+
+Each function in the chainable interface is also attached to `Hash` in chainless
+form:
+
+var Hash = require(&#x27;hashish&#x27;);
+var obj = { a : 1, b : 2, c : 3, d : 4 };
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.exclude" id="apidoc.module.hashish.exclude">module hashish.exclude</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.exclude.exclude" id="apidoc.element.hashish.exclude.exclude">
+        function <span class="apidocSignatureSpan">hashish.</span>exclude
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exclude = function (ref, keys) {
+    return Hash(ref).exclude(keys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">exclude</span>(keys).items;
+};
+
+Hash.concat = function (xs) {
+    var hash = Hash({});
+    xs.forEach(function (x) { hash.update(x) });
+    return hash.items;
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.extract" id="apidoc.module.hashish.extract">module hashish.extract</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.extract.extract" id="apidoc.element.hashish.extract.extract">
+        function <span class="apidocSignatureSpan">hashish.</span>extract
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">extract</span>(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+    return Hash(ref).exclude(keys).items;
+};
+
+Hash.concat = function (xs) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.filter" id="apidoc.module.hashish.filter">module hashish.filter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.filter.filter" id="apidoc.element.hashish.filter.filter">
+        function <span class="apidocSignatureSpan">hashish.</span>filter
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (ref, f) {
+    return Hash(ref).filter(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Hashish provides a chaining interface, where you can do:
+
+    var Hash = require(&#x27;hashish&#x27;);
+
+    Hash({ a : 1, b : 2, c : 3, d : 4 })
+        .map(function (x) { return x * 10 })
+        .<span class="apidocCodeKeywordSpan">filter</span>(function (x) { return x &#x3c; 30 })
+        .forEach(function (x, key) {
+            console.log(key + &#x27; =&#x3e; &#x27; + x);
+        })
+    ;
+
+Output:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.forEach" id="apidoc.module.hashish.forEach">module hashish.forEach</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.forEach.forEach" id="apidoc.element.hashish.forEach.forEach">
+        function <span class="apidocSignatureSpan">hashish.</span>forEach
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEach = function (ref, f) {
+    Hash(ref).forEach(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Hashish provides a chaining interface, where you can do:
+
+var Hash = require(&#x27;hashish&#x27;);
+
+Hash({ a : 1, b : 2, c : 3, d : 4 })
+    .map(function (x) { return x * 10 })
+    .filter(function (x) { return x &#x3c; 30 })
+    .<span class="apidocCodeKeywordSpan">forEach</span>(function (x, key) {
+        console.log(key + &#x27; =&#x3e; &#x27; + x);
+    })
+;
+
+Output:
+
+a =&#x3e; 10
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.has" id="apidoc.module.hashish.has">module hashish.has</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.has.has" id="apidoc.element.hashish.has.has">
+        function <span class="apidocSignatureSpan">hashish.</span>has
+        <span class="apidocSignatureSpan">(ref, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (ref, key) {
+    return Hash(ref).has(key);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+},
+mergeAll : function (xs) {
+    return self.copy.updateAll(xs);
+},
+has : function (key) { // only operates on enumerables
+    return Array.isArray(key)
+        ? key.every(function (k) { return self.<span class="apidocCodeKeywordSpan">has</span>(k) })
+        : self.keys.indexOf(key.toString()) &#x3e;= 0;
+},
+valuesAt : function (keys) {
+    return Array.isArray(keys)
+        ? keys.map(function (key) { return hash[key] })
+        : hash[keys]
+    ;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.map" id="apidoc.module.hashish.map">module hashish.map</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.map.map" id="apidoc.element.hashish.map.map">
+        function <span class="apidocSignatureSpan">hashish.</span>map
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">map = function (ref, f) {
+    return Hash(ref).map(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+way of hash/map interfaces.
+
+Hashish provides a chaining interface, where you can do:
+
+    var Hash = require(&#x27;hashish&#x27;);
+
+    Hash({ a : 1, b : 2, c : 3, d : 4 })
+        .<span class="apidocCodeKeywordSpan">map</span>(function (x) { return x * 10 })
+        .filter(function (x) { return x &#x3c; 30 })
+        .forEach(function (x, key) {
+            console.log(key + &#x27; =&#x3e; &#x27; + x);
+        })
+    ;
+
+Output:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.merge" id="apidoc.module.hashish.merge">module hashish.merge</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.merge.merge" id="apidoc.element.hashish.merge.merge">
+        function <span class="apidocSignatureSpan">hashish.</span>merge
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (a) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.merge.apply(hash, args).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.reduce" id="apidoc.module.hashish.reduce">module hashish.reduce</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.reduce.reduce" id="apidoc.element.hashish.reduce.reduce">
+        function <span class="apidocSignatureSpan">hashish.</span>reduce
+        <span class="apidocSignatureSpan">(ref, f, acc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduce = function (ref, f, acc) {
+    return Hash(ref).reduce(f, acc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.detect = function (ref, f) {
+    return Hash(ref).detect(f);
+};
+
+Hash.reduce = function (ref, f, acc) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">reduce</span>(f, acc);
+};
+
+Hash.some = function (ref, f) {
+    return Hash(ref).some(f);
+};
+
+Hash.update = function (a /*, b, c, ... */) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.size" id="apidoc.module.hashish.size">module hashish.size</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.size.size" id="apidoc.element.hashish.size.size">
+        function <span class="apidocSignatureSpan">hashish.</span>size
+        <span class="apidocSignatureSpan">(ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">size = function (ref) {
+    return Hash(ref).size;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Make a shallow copy of the hash.
+
+length
+------
+
+Return the number of key/value pairs in the hash.
+Note: use `Hash.<span class="apidocCodeKeywordSpan">size</span>()` for non-chain mode.
+
+size
+----
+
+Alias for `length` since `Hash.length` is masked by `Function.prototype`.
+
+See Also
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.some" id="apidoc.module.hashish.some">module hashish.some</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.some.some" id="apidoc.element.hashish.some.some">
+        function <span class="apidocSignatureSpan">hashish.</span>some
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">some = function (ref, f) {
+    return Hash(ref).some(f);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.reduce = function (ref, f, acc) {
+    return Hash(ref).reduce(f, acc);
+};
+
+Hash.some = function (ref, f) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">some</span>(f);
+};
+
+Hash.update = function (a /*, b, c, ... */) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.update.apply(hash, args).items;
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.tap" id="apidoc.module.hashish.tap">module hashish.tap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.tap.tap" id="apidoc.element.hashish.tap.tap">
+        function <span class="apidocSignatureSpan">hashish.</span>tap
+        <span class="apidocSignatureSpan">(ref, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.valuesAt = function (ref, keys) {
+    return Hash(ref).valuesAt(keys);
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">tap</span>(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+    return Hash(ref).extract(keys).items;
+};
+
+Hash.exclude = function (ref, keys) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.toString" id="apidoc.module.hashish.toString">module hashish.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.toString.toString" id="apidoc.element.hashish.toString.toString">
+        function <span class="apidocSignatureSpan">hashish.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+mergeAll : function (xs) {
+    return self.copy.updateAll(xs);
+},
+has : function (key) { // only operates on enumerables
+    return Array.isArray(key)
+        ? key.every(function (k) { return self.has(k) })
+        : self.keys.indexOf(key.<span class="apidocCodeKeywordSpan">toString</span>()) &#x3e;= 0;
+},
+valuesAt : function (keys) {
+    return Array.isArray(keys)
+        ? keys.map(function (key) { return hash[key] })
+        : hash[keys]
+    ;
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.update" id="apidoc.module.hashish.update">module hashish.update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.update.update" id="apidoc.element.hashish.update.update">
+        function <span class="apidocSignatureSpan">hashish.</span>update
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (a) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var hash = Hash(a);
+    return hash.update.apply(hash, args).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            hash[key] = obj[key];
+        });
+    }
+    return self;
+},
+updateAll : function (xs) {
+    xs.filter(Boolean).forEach(function (x) {
+        self.<span class="apidocCodeKeywordSpan">update</span>(x);
+    });
+    return self;
+},
+merge : function (obj) {
+    if (arguments.length &#x3e; 1) {
+        return self.copy.updateAll([].slice.call(arguments));
+    }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.valuesAt" id="apidoc.module.hashish.valuesAt">module hashish.valuesAt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.valuesAt.valuesAt" id="apidoc.element.hashish.valuesAt.valuesAt">
+        function <span class="apidocSignatureSpan">hashish.</span>valuesAt
+        <span class="apidocSignatureSpan">(ref, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valuesAt = function (ref, keys) {
+    return Hash(ref).valuesAt(keys);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Hash.has = function (ref, key) {
+    return Hash(ref).has(key);
+};
+
+Hash.valuesAt = function (ref, keys) {
+    return Hash(ref).<span class="apidocCodeKeywordSpan">valuesAt</span>(keys);
+};
+
+Hash.tap = function (ref, f) {
+    return Hash(ref).tap(f).items;
+};
+
+Hash.extract = function (ref, keys) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hashish.zip" id="apidoc.module.hashish.zip">module hashish.zip</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hashish.zip.zip" id="apidoc.element.hashish.zip.zip">
+        function <span class="apidocSignatureSpan">hashish.</span>zip
+        <span class="apidocSignatureSpan">(xs, ys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">zip = function (xs, ys) {
+    return Hash(xs, ys).items;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
