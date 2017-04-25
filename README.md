@@ -1,4 +1,7 @@
-# api documentation for  [hashish (v0.0.4)](https://github.com/substack/node-hashish#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hashish.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hashish) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hashish.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hashish)
+# npmdoc-hashish
+
+#### basic api documentation for  [hashish (v0.0.4)](https://github.com/substack/node-hashish#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hashish.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hashish) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hashish.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hashish)
+
 #### Hash data structure manipulation functions
 
 [![NPM](https://nodei.co/npm/hashish.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/hashish)
@@ -62,7 +65,8 @@
     "scripts": {
         "test": "expresso"
     },
-    "version": "0.0.4"
+    "version": "0.0.4",
+    "bin": {}
 }
 ```
 
